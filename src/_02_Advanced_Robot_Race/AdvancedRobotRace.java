@@ -18,19 +18,20 @@ public class AdvancedRobotRace {
 		
 		for (int i = 0; i < robThread.length; i++) {
 			int k = i;
-			robThread[i] = new Thread(()-> robots[k].move(rand.nextInt(45)+5));
+			robThread[i] = new Thread(()-> {
+			while(isNotZero(robots[k])){
+				robots[k].move(rand.nextInt(45)+5);
+				}
+			});
 		}
-		while(isNotZero(robots)) {
-		for(Thread th : robThread) {
-			
+		for (Thread r : robThread) {
+			r.start();
 		}
 		}
-	}
-	private static boolean isNotZero(Robot[] robots) {
-		for(Robot r : robots) {
-			if(r.getY()<=0) {
+	
+	private static boolean isNotZero(Robot robots) {
+				if(robots.getY()<=0) {
 				return false;
-			}
 		}
 		return true;
 	}

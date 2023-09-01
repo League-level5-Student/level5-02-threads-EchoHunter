@@ -13,6 +13,7 @@ public class OlympicRings_Threaded {
 		Robot rob4 = new Robot(1000,600);
 		Robot rob5 = new Robot(1200,500);
 		rob1.setPenColor(Color.blue);
+		//hello
 		rob2.setPenColor(Color.yellow);
 		rob3.setPenColor(Color.black);
 		rob4.setPenColor(Color.green);
