@@ -9,9 +9,11 @@ public class AdvancedRobotRace {
 	// This time, use threads to make all of the robots go at the same time.
 	public static void main(String[] args) {
 		Robot[] robots = new Robot[5];
+		int adder = 0;
 		for (int z = 0; z < robots.length; z++) {
-			robots[z] = new Robot(500,600);
+			robots[z] = new Robot(250+adder,600);
 			robots[z].setSpeed(1000);
+			adder = adder + 300;
 		}
 		Thread[] robThread = new Thread[5];
 		Random rand = new Random();

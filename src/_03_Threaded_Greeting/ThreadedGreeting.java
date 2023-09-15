@@ -44,3 +44,25 @@ public class ThreadedGreeting {
 		}
 	}
 }
+
+class ThreadedGreeter implements Runnable{
+	int inputNum;
+	ThreadedGreeter(int inputNum){
+		 this.inputNum = inputNum;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Hello from thread number: " + inputNum);
+		if(inputNum < 50) {
+			Thread t = new Thread(new ThreadedGreeter(1+inputNum));
+			t.start();
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
